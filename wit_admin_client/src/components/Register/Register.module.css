@@ -1,0 +1,75 @@
+/* 회원가입 페이지 스타일 */
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+}
+
+.signup-form {
+    width: 320px;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin: auto; /* 중앙 정렬 */
+}
+
+.header {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 12px 12px 0 0;
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+.inputField,
+select { /* 텍스트 입력과 셀렉트 박스에 동일한 스타일 적용 */
+    width: 95%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s;
+    font-size: 1em; /* 글자 크기 통일 */
+    appearance: none; /* 기본 화살표 제거 */
+    background-color: #fff; /* 배경색 통일 */
+}
+
+.inputField:focus,
+select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* 포커스 시 그림자 효과 */
+}
+
+.button {
+    padding: 10px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #ffffff;
+    width: 45%;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.primaryButton {
+    background-color: #007bff;
+}
+
+.secondaryButton {
+    background-color: #6c757d;
+}
