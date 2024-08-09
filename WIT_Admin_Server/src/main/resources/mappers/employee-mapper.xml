@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="employee">
+
+	<!-- 입사 순서대로 부서코드 생성을 위한 DB 조회 (사번 생성) -->
+	<select id="getHighestEmployeeIDByDept" parameterType="string"
+		resultType="string">
+		SELECT emp_no
+		FROM (
+		SELECT emp_no,
+		ROW_NUMBER() OVER
+		(PARTITION BY dept_code ORDER BY TO_NUMBER(SUBSTR(emp_no, -2))
+		DESC) as
+		rnk
+		FROM employee
+		WHERE dept_code = #{deptCode}
+		)
+		WHERE rnk = 1
+	</select>
+
+	<!-- 회원가입 -->
+	<insert id="register" parameterType="com.wit.dto.EmployeeDTO">
+		INSERT INTO employee (
+		emp_no,
+		pw,
+		name,
+		dept_code,
+		role_code,
+		join_date,
+		nickname,
+		ssn,
+		phone,
+		email,
+		zip_code,
+		address,
+		detail_address
+		) VALUES (
+		#{emp_no},
+		#{pw},
+		#{name},
+		#{dept_code},
+		#{role_code},
+		SYSDATE,
+		' ',
+		' ',
+		' ',
+		' ',
+		' ',
+		' ',
+		' '
+		)
+	</insert>
+
+
+	<!-- 모든 부서 정보 가져오기 -->
+	<select id="getAllDepts" resultType="com.wit.dto.DeptDTO">
+		SELECT dept_code, dept_title
+		FROM dept
+	</select>
+
+	<!-- 모든 직급 정보 가져오기 -->
+	<select id="getAllRoles" resultType="com.wit.dto.RoleDTO">
+		SELECT role_code, role_title
+		FROM role
+	</select>
+
+	<!-- 로그인 -->
+	<select id="login" parameterType="com.wit.dto.EmployeeDTO"
+		resultType="com.wit.dto.EmployeeDTO">
+		SELECT emp_no, pw, role_code
+		FROM employee
+		WHERE emp_no = #{emp_no}
+		AND pw = #{pw}
+	</select>
+
+	<!-- 회원 탈퇴 -->
+	<delete id="delete" parameterType="string">
+		DELETE FROM employee WHERE
+		emp_no = #{emp_no}
+	</delete>
+</mapper>
