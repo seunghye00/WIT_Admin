@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../../store/store' // zustand or your preferred store
 import axios from 'axios'
 import styles from './Home.module.css'
+import { host } from '../../config/config'
 
 const Home = () => {
     const { loginID, setLoginID, setMyPage } = useAuthStore()
@@ -17,7 +18,7 @@ const Home = () => {
 
     const handleLogin = () => {
         axios
-            .post(`http://192.168.24.1/auth`, auth)
+            .post(`http://${host}/auth`, auth)
             .then(resp => {
                 console.log('Login response:', resp)
                 if (resp.data) {
@@ -37,7 +38,7 @@ const Home = () => {
 
     const handleLogout = () => {
         axios
-            .delete(`http://192.168.24.1/auth`)
+            .delete(`http://${host}/auth`)
             .then(() => {
                 sessionStorage.removeItem('loginID')
                 setLoginID('')
@@ -50,7 +51,7 @@ const Home = () => {
 
     const handleout = () => {
         axios
-            .delete(`http://192.168.24.1/member`, { data: { id: loginID } })
+            .delete(`http://${host}/member`, { data: { id: loginID } })
             .then(() => {
                 handleLogout()
             })
@@ -61,7 +62,7 @@ const Home = () => {
 
     const handleMypage = () => {
         axios
-            .get(`http://192.168.24.1/member`, { params: { id: loginID } })
+            .get(`http://${host}/member`, { params: { id: loginID } })
             .then(resp => {
                 setMyPage(resp.data)
                 navigate('/member/mypage', { state: resp.data })

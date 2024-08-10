@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import styles from './Register.module.css'
+import { host } from '../../config/config'
 
 const Register = () => {
     const navigate = useNavigate()
@@ -27,7 +28,7 @@ const Register = () => {
 
     useEffect(() => {
         axios
-            .get('http://192.168.24.1/employee/departments')
+            .get(`http://${host}/employee/departments`)
             .then(response => {
                 setDeptList(response.data)
             })
@@ -37,7 +38,7 @@ const Register = () => {
             })
 
         axios
-            .get('http://192.168.24.1/employee/roles')
+            .get(`http://${host}/employee/roles`)
             .then(response => {
                 setRoleList(response.data)
             })
@@ -65,7 +66,7 @@ const Register = () => {
         }
 
         axios
-            .post('http://192.168.24.1/employee/highestEmployeeID', {
+            .post(`http://${host}/employee/highestEmployeeID`, {
                 dept: employee.dept_code,
             })
             .then(response => {
@@ -97,7 +98,7 @@ const Register = () => {
 
     const handleRegister = () => {
         axios
-            .post('http://192.168.24.1/employee', employee)
+            .post(`http://${host}/employee`, employee)
             .then(() => {
                 alert('회원가입 성공')
                 navigate('/')
