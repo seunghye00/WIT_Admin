@@ -1,7 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/react,visualstudio,java,windows,git,eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,visualstudio,java,windows,git,eclipse
 
-wit_admin_client/src/config/*
+wit_admin_client/src/config/config.js
 
 ### Eclipse ###
 .metadata

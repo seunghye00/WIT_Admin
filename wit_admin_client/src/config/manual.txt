@@ -1,0 +1,5 @@
+config.js 파일에 아래 코드 입력 후
+export const host = "현재 ip 주소"
+다른 파일에서는 ${host}로 불러오면 됩니다.
+
+config.js 파일은 각자 생성해주세요.
