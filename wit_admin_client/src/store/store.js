@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-
+/*
 export const useAuthStore = create(set => ({
     loginID: '', // 세션을 상태변수로 만들고, 처음엔 빈 문자열로 셋팅
     myPage: { id: '', pw: '', name: '' },
@@ -10,4 +10,4 @@ export const useAuthStore = create(set => ({
     // setUserInfo라는 함수를 만들어서 myPage를 업데이트한다
     // 이걸 통해서 loginID 값을 변경 할 수 있다!
     // set을 통해서만 useAuthStore라는 상태변수를 변경이 가능하다
-}))
+}))*/
