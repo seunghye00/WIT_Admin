@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import styles from './Register.module.css'
-import { host } from '../../config/config'
+import { host } from '../../../../config/config'
 
 const Register = () => {
     const navigate = useNavigate()
