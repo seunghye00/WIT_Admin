@@ -1,5 +1,12 @@
+import SideAbout from '../components/Section/Board/SideAbout'
+
 const Board = () => {
-    return <div>게시판</div>
+    return (
+        <>
+            <SideAbout />
+            <div className="sideContents">{/* <BoardList /> */}</div>
+        </>
+    )
 }
 
 export default Board
