@@ -1,5 +1,15 @@
-const Attendance = () => {
-    return <div className="attendance">근태관리</div>
+import SideAbout from '../components/Section/Attendance/SideAbout'
+import Attendance from '../components/Section/Attendance/Attendance'
+
+const AttendancePage = () => {
+    return (
+        <>
+            <SideAbout />
+            <div className="sideContents">
+                <Attendance />
+            </div>
+        </>
+    )
 }
 
-export default Attendance
+export default AttendancePage

@@ -1,0 +1,95 @@
+/* Attendance.module.css */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sideContents {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.attendance_dept {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.dept_tabs {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.dept_tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+
+.dept_tab.active {
+    background-color: #555;
+    border-bottom: none;
+    color: white;
+    border-radius: 10px;
+}
+
+.dept_tab:not(.active):hover {
+    background-color: #e0e0e0;
+}
+
+.header_row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f7f7f7;
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #555;
+    color: white;
+}
+
+.header_row span {
+    flex: 1;
+    text-align: center;
+}
+
+.attendance_content {
+    display: flex;
+    flex-direction: column;
+}
+
+.attendance_row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.attendance_row span {
+    flex: 1;
+    text-align: center;
+}
+
+.week_selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0;
+    font-size: 18px;
+    font-weight: bold;
+    justify-content: flex-end;
+}
+
+.week_selector i {
+    font-size: 25px;
+    cursor: pointer;
+    margin: 0 5px;
+}
