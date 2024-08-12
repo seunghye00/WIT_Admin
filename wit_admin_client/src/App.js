@@ -11,6 +11,7 @@ import Home from './pages/Home'
 import EApproval from './pages/EApproval'
 import Messenger from './pages/Messenger'
 import Calendar from './pages/Calendar'
+import Attendance from './pages/Attendance'
 import { useAuthStore } from './store/store'
 import axios from 'axios'
 
@@ -51,6 +52,10 @@ function App() {
                                 element={<Management />}
                             />
                             <Route path="/messenger" element={<Messenger />} />
+                            <Route
+                                path="/attendance"
+                                element={<Attendance />}
+                            />
                         </Routes>
                     </div>
                 </div>
