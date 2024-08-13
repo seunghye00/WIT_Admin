@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="attendance">
+
+	<!-- 부서별 근무현황 조회 -->
+	<select id="deptAtd" parameterType="map" resultType="map">
+		SELECT
+		e.name AS empname,
+		r.role_title AS roletitle,
+		TO_CHAR(a.work_date, 'YYYY-MM-DD') AS workdate,
+		a.start_time AS starttime,
+		a.end_time AS endtime
+		FROM
+		employee e
+		JOIN
+		dept d ON e.dept_code = d.dept_code
+		JOIN
+		role r ON e.role_code = r.role_code
+		JOIN
+		attendance a ON e.emp_no = a.emp_no
+		WHERE
+		d.dept_title = #{deptTitle}
+		AND a.work_date BETWEEN #{startDate} AND #{endDate}
+		ORDER BY
+		CASE
+		WHEN r.role_title = '사장' THEN 1
+		WHEN r.role_title = '부장' THEN 2
+		WHEN r.role_title = '차장' THEN 3
+		WHEN r.role_title = '과장' THEN 4
+		WHEN r.role_title = '대리' THEN 5
+		WHEN r.role_title = '사원' THEN 6
+		WHEN r.role_title = '인턴' THEN 7
+		ELSE 8 -- 예외적으로 존재할 수 있는 다른 직급에 대해 기본 우선순위 설정
+		END ASC,
+		e.name ASC,
+		a.work_date ASC
+	</select>
+
+
+
+
+</mapper>
