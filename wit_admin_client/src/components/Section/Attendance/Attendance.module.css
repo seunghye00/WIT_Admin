@@ -8,14 +8,12 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 20px;
 }
 
 .attendance_dept {
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    padding: 10px;
 }
 
 .dept_tabs {
@@ -70,7 +68,7 @@
     justify-content: space-between;
     padding: 10px;
     border-bottom: 1px solid #c1c1c1;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .attendance_row span {
@@ -92,4 +90,8 @@
     font-size: 24px;
     cursor: pointer;
     margin: 0 10px;
+}
+
+h2{
+    margin-bottom: 10px;
 }

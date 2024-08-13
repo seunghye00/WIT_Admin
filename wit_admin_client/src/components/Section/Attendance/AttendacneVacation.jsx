@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import style from './AttendanceVacation.module.css'
 import 'boxicons/css/boxicons.min.css'
 
-const Attendance = () => {
+const AttendanceVacation = () => {
     const [selectedDept, setSelectedDept] = useState('인사')
 
     // 부서별 임시 데이터
@@ -131,4 +131,4 @@ const Attendance = () => {
     )
 }
 
-export default Attendance
+export default AttendanceVacation
