@@ -14,7 +14,7 @@ public class AttendanceDAO {
     @Autowired
     private SqlSession mybatis;
 
-	// 부서 근무현황 조회
+	// 부서별 근무현황 조회
     public List<AttendanceDTO> deptAtd(Map<String, Object> params) {
 //        System.out.println("DAO - Query Parameters: " + params);
         List<AttendanceDTO> result = mybatis.selectList("attendance.deptAtd", params);

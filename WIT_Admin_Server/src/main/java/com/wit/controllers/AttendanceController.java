@@ -17,7 +17,7 @@ public class AttendanceController {
     @Autowired
     private AttendanceService service;
 
-    // 부서 근무현황 조회 
+    // 부서별 근무현황 조회 
     @GetMapping("/deptAtd")
     public List<AttendanceDTO> deptAtd(String deptTitle, Date startDate, Date endDate) {
 //        System.out.println("Controller - Request received: deptTitle=" + deptTitle + ", startDate=" + startDate + ", endDate=" + endDate);
