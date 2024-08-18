@@ -35,6 +35,7 @@ function App() {
     if (isLoading) {
         return <Loading />;
     } else {*/
+
     return (
         <Router>
             <div className="container">
@@ -47,7 +48,10 @@ function App() {
                             <Route path="/admin" element={<Admin />} />
                             <Route path="/board" element={<Board />} />
                             <Route path="/calendar" element={<Calendar />} />
-                            <Route path="/eApproval" element={<EApproval />} />
+                            <Route
+                                path="/eApproval/*"
+                                element={<EApproval />}
+                            />
                             <Route
                                 path="/management"
                                 element={<Management />}
